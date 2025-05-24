@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Valuation Enhanced</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Business Valuation Enhanced</h1>
+    </header>
+
+    <main>
+        <form id="valuationForm">
+            <div class="form-section">
+                <h2>Company Information</h2>
+                <div class="input-group">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName" name="companyName" required>
+                </div>
+                <div class="input-group">
+                    <label for="website">Website URL</label>
+                    <input type="url" id="website" name="website" required>
+                </div>
+                <div class="input-group">
+                    <label for="industry">Industry Sector</label>
+                    <select id="industry" name="industry" required>
+                        <option value="">Select Industry</option>
+                        <option value="technology">Technology</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="finance">Financial Services</option>
+                        <option value="retail">Retail</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="energy">Energy</option>
+                        <option value="telecom">Telecommunications</option>
+                        <option value="real_estate">Real Estate</option>
+                        <option value="consumer_goods">Consumer Goods</option>
+                        <option value="automotive">Automotive</option>
+                        <option value="aerospace">Aerospace & Defense</option>
+                        <option value="biotech">Biotechnology</option>
+                        <option value="media">Media & Entertainment</option>
+                        <option value="agriculture">Agriculture</option>
+                        <option value="construction">Construction</option>
+                        <option value="education">Education</option>
+                        <option value="hospitality">Hospitality</option>
+                        <option value="logistics">Logistics & Transportation</option>
+                        <option value="mining">Mining & Materials</option>
+                        <option value="pharma">Pharmaceuticals</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="subsector">Sub-sector</label>
+                    <input type="text" id="subsector" name="subsector" required>
+                </div>
+                <div class="input-group">
+                    <label for="location">Country / Location</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div class="input-group">
+                    <label for="businessAge">Business Age (Years)</label>
+                    <input type="number" id="businessAge" name="businessAge" min="0" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Financial Data</h2>
+                <div class="input-group">
+                    <label for="revenue">Annual Revenue</label>
+                    <input type="number" id="revenue" name="revenue" min="0" required>
+                </div>
+                <div class="input-group">
+                    <label for="ebitda">EBITDA</label>
+                    <input type="number" id="ebitda" name="ebitda" required>
+                </div>
+                <div class="input-group">
+                    <label for="grossMargin">Gross Margin (%)</label>
+                    <input type="number" id="grossMargin" name="grossMargin" min="0" max="100" required>
+                </div>
+                <div class="input-group">
+                    <label for="growthRate">Growth Rate (%)</label>
+                    <input type="number" id="growthRate" name="growthRate" required>
+                </div>
+                <div class="input-group">
+                    <label for="retentionRate">Customer Retention Rate (%)</label>
+                    <input type="number" id="retentionRate" name="retentionRate" min="0" max="100">
+                </div>
+                <div class="input-group">
+                    <label for="employees">Number of Employees</label>
+                    <input type="number" id="employees" name="employees" min="1" required>
+                </div>
+                <div class="input-group">
+                    <label for="riskLevel">Risk Level</label>
+                    <select id="riskLevel" name="riskLevel" required>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <div class="input-group checkbox-group">
+                    <label>Comparable Type</label>
+                    <div class="checkbox-options">
+                        <label>
+                            <input type="checkbox" name="comparableType" value="public"> Public
+                        </label>
+                        <label>
+                            <input type="checkbox" name="comparableType" value="private"> Private
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" id="calculateBtn">Calculate Valuation</button>
+        </form>
+
+        <div id="results" class="hidden">
+            <div class="valuation-cards">
+                <div class="card">
+                    <h3>EBITDA Valuation</h3>
+                    <div id="ebitdaValuation"></div>
+                </div>
+                <div class="card">
+                    <h3>DCF Valuation</h3>
+                    <div id="dcfValuation"></div>
+                </div>
+                <div class="card">
+                    <h3>Comparable Company Analysis</h3>
+                    <div id="comparableValuation"></div>
+                </div>
+            </div>
+
+            <div class="comparables-section">
+                <h3>Comparable Companies</h3>
+                <table id="comparablesTable">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Revenue</th>
+                            <th>EBITDA Multiple</th>
+                            <th>Market Cap</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="summary-section">
+                <h3>Summary Recommendations</h3>
+                <div id="recommendations"></div>
+            </div>
+
+            <button id="exportPdf">Export to PDF</button>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html> 
